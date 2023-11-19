@@ -27,11 +27,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
+    public Double getEmployeeSalaryByDocumentNumber(String documentNumber) {
+        return getEmployeeByDocumentNumber(documentNumber).getSalary();
+    }
+
+    @Override
     public List<EmployeeResponseDTO> getAllEmployees() {
-        List<EmployeeResponseDTO> employeeList = employeeRepository.findAll()
+        return employeeRepository.findAll()
                 .stream()
                 .map(EmployeeResponseDTO::new)
                 .toList();
-        return employeeList;
     }
 }

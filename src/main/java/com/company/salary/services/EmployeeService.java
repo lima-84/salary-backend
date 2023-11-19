@@ -11,5 +11,7 @@ public interface EmployeeService {
 
     EmployeeResponseDTO getEmployeeByDocumentNumber(String documentNumber);
 
+    Double getEmployeeSalaryByDocumentNumber(String documentNumber);
+
     List<EmployeeResponseDTO> getAllEmployees();
 }
