@@ -16,6 +16,7 @@ public class EmployeeResponseDTO extends EmployeeDTO{
         this.name = employee.getName();
         this.documentNumber = employee.getDocumentNumber();
         this.birthDate = employee.getBirthDate();
+        this.phoneNumber = employee.getPhoneNumber();
         this.address = employee.getAddress();
         this.salary = employee.getSalary();
     }

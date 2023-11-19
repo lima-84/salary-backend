@@ -3,7 +3,6 @@ package com.company.salary.domain.employee;
 import java.time.LocalDate;
 
 import com.company.salary.controllers.data.EmployeeDTO;
-import com.company.salary.controllers.data.EmployeeRequestDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -33,7 +32,7 @@ public class Employee {
     private String address;
     private Double salary;
 
-    private static Employee getEmployee(EmployeeDTO data){
+    public static Employee getEmployee(EmployeeDTO data) {
         Employee employee = new Employee();
         employee.name = data.getName();
         employee.documentNumber = data.getDocumentNumber();
@@ -43,9 +42,5 @@ public class Employee {
         employee.salary = data.getSalary();
 
         return employee;
-    }
-
-    public static Employee fromRequestDTO(EmployeeRequestDTO data){
-        return getEmployee(data);
     }
 }
