@@ -7,9 +7,14 @@ import java.util.List;
 
 public interface EmployeeService {
 
+    List<EmployeeResponseDTO> getAllEmployees();
+
     EmployeeResponseDTO addEmployee(EmployeeRequestDTO data);
 
     EmployeeResponseDTO getEmployeeByDocumentNumber(String documentNumber);
 
-    List<EmployeeResponseDTO> getAllEmployees();
+    Double getEmployeeSalaryByDocumentNumber(String documentNumber);
+
+    EmployeeResponseDTO updateEmployee(EmployeeResponseDTO data);
+
 }

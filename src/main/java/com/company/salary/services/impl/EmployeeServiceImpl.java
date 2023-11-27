@@ -15,6 +15,15 @@ import java.util.List;
 public class EmployeeServiceImpl implements EmployeeService {
 
     private final EmployeeRepository employeeRepository;
+
+    @Override
+    public List<EmployeeResponseDTO> getAllEmployees() {
+        return employeeRepository.findAll()
+                .stream()
+                .map(EmployeeResponseDTO::new)
+                .toList();
+    }
+
     @Override
     public EmployeeResponseDTO addEmployee(EmployeeRequestDTO data) {
         Employee employee = Employee.getEmployee(data);
@@ -27,11 +36,15 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public List<EmployeeResponseDTO> getAllEmployees() {
-        List<EmployeeResponseDTO> employeeList = employeeRepository.findAll()
-                .stream()
-                .map(EmployeeResponseDTO::new)
-                .toList();
-        return employeeList;
+    public Double getEmployeeSalaryByDocumentNumber(String documentNumber) {
+        return getEmployeeByDocumentNumber(documentNumber).getSalary();
     }
+
+    @Override
+    public EmployeeResponseDTO updateEmployee(EmployeeResponseDTO data) {
+        Employee employee = employeeRepository.getById(data.getId());
+        employee.setSalary(data.getSalary());
+        return new EmployeeResponseDTO(employeeRepository.save(employee));
+    }
+
 }
