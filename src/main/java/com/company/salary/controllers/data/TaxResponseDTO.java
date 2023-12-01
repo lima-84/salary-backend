@@ -10,5 +10,5 @@ import lombok.Setter;
 public class TaxResponseDTO {
 
     private String documentNumber;
-    private Double tax;
+    private String tax;
 }

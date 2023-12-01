@@ -17,7 +17,7 @@ public class SalaryServiceImpl implements SalaryService {
     private final EmployeeService employeeService;
     @Override
     public SalaryResponseDTO getReadjustedSalary(String documentNumber) {
-        return getSalaryReadjustDTO(documentNumber);
+        return this.getSalaryReadjustDTO(documentNumber);
     }
 
     private SalaryResponseDTO getSalaryReadjustDTO(String documentNumber) {
@@ -25,7 +25,7 @@ public class SalaryServiceImpl implements SalaryService {
         EmployeeResponseDTO employeeResponseDTO = employeeService.getEmployeeByDocumentNumber(documentNumber);
 
         double salary = employeeResponseDTO.getSalary();
-        double readjustPercentage = getSalaryReadjustPercentage(salary);
+        double readjustPercentage = this.getSalaryReadjustPercentage(salary);
         double readjustValue = new BigDecimal(readjustPercentage * salary)
                 .setScale(2, RoundingMode.HALF_EVEN)
                 .doubleValue();
@@ -37,7 +37,7 @@ public class SalaryServiceImpl implements SalaryService {
         return new SalaryResponseDTO(readjustedSalary, readjustValue, readjustPercentage, documentNumber);
     }
 
-    public double getSalaryReadjustPercentage(double salary){
+    private double getSalaryReadjustPercentage(double salary){
 
         if(salary <= 400) { return 0.15; }
         if(salary <= 800) { return 0.12; }
