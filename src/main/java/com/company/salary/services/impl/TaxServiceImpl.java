@@ -46,11 +46,16 @@ public class TaxServiceImpl implements TaxService {
     }
 
     private double getTaxPercentage(double salary) {
-        // TODO: insert correct calculation
-        if(salary <= 2000) { return 0.00; }
-        if(salary <= 3000) { return 0.08; }
-        if(salary <= 4500) { return 0.18; }
 
-        return 0.28;
+        double[] RATES = {0.0, 0.08, 0.18, 0.28};
+        double[] THRESHOLDS = {0.0, 2000.0, 3000, 4500};
+        double tax = 0.0;
+
+        for(int i = 1; i < THRESHOLDS.length; i++){
+            tax += RATES[i] * (salary - THRESHOLDS[i-1]);
+            if (salary <= THRESHOLDS[i]) { return tax; }
+        }
+
+        return tax;
     }
 }
