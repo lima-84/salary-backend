@@ -26,10 +26,7 @@ public class TaxServiceImpl implements TaxService {
         EmployeeResponseDTO employeeResponseDTO = employeeService.getEmployeeByDocumentNumber(documentNumber);
 
         double salary = employeeResponseDTO.getSalary();
-        double taxPercentage = this.getTaxPercentage(salary);
-        double taxValue = new BigDecimal(taxPercentage * salary)
-                .setScale(2, RoundingMode.HALF_EVEN)
-                .doubleValue();
+        double taxValue = this.getTaxValue(salary);
         String taxMessage = this.getTaxMessage(taxValue);
 
         return new TaxResponseDTO(documentNumber, taxMessage);
@@ -45,17 +42,31 @@ public class TaxServiceImpl implements TaxService {
         return currencySymbol + taxValue;
     }
 
-    private double getTaxPercentage(double salary) {
+    private double getTaxValue(double salary) {
 
-        double[] RATES = {0.0, 0.08, 0.18, 0.28};
-        double[] THRESHOLDS = {0.0, 2000.0, 3000, 4500};
-        double tax = 0.0;
+        double[] INSSRates = {0.075, 0.09, 0.12, 0.14};
+        double[] INSSThresholds = {1320.00, 2571.29, 3856.94, 7507.49};
+        double[] INSSFixedDeductions = {0.0, 19.80, 96.94, 174.08};
 
-        for(int i = 1; i < THRESHOLDS.length; i++){
-            tax += RATES[i] * (salary - THRESHOLDS[i-1]);
-            if (salary <= THRESHOLDS[i]) { return tax; }
+        double[] taxRates = {0.0, 0.075, 0.15, 0.225, 0.275};
+        double[] taxThresholds = {2112.0, 2826.65, 3751.05, 4664.68};
+        double[] taxFixedDeductions = {0.0, 158.40, 370.40, 651.73, 884.96};
+
+        double INSSDeductionValue = getDeductionValue(salary, INSSRates, INSSThresholds, INSSFixedDeductions);
+        double taxValue = getDeductionValue(salary - INSSDeductionValue, taxRates, taxThresholds, taxFixedDeductions);
+
+        return new BigDecimal(taxValue)
+                .setScale(2, RoundingMode.HALF_EVEN)
+                .doubleValue();
+    }
+
+    private double getDeductionValue(double value, double[] rates, double[] thresholds, double[] fixedDeductions) {
+        for (int i = 0; i < rates.length - 1; i++) {
+            if (value <= thresholds[i]) {
+                return rates[i] * value - fixedDeductions[i];
+            }
         }
 
-        return tax;
+        return rates[fixedDeductions.length-1] * value - fixedDeductions[fixedDeductions.length-1];
     }
 }
