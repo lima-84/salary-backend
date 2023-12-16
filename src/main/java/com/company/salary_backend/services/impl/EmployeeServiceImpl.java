@@ -1,10 +1,10 @@
-package com.company.salary.services.impl;
+package com.company.salary_backend.services.impl;
 
-import com.company.salary.controllers.data.EmployeeRequestDTO;
-import com.company.salary.controllers.data.EmployeeResponseDTO;
-import com.company.salary.domain.employee.Employee;
-import com.company.salary.repositories.EmployeeRepository;
-import com.company.salary.services.EmployeeService;
+import com.company.salary_backend.controllers.data.EmployeeRequestDTO;
+import com.company.salary_backend.controllers.data.EmployeeResponseDTO;
+import com.company.salary_backend.domain.employee.Employee;
+import com.company.salary_backend.repositories.EmployeeRepository;
+import com.company.salary_backend.services.EmployeeService;
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;

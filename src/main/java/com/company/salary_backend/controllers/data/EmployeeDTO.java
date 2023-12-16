@@ -1,4 +1,4 @@
-package com.company.salary.controllers.data;
+package com.company.salary_backend.controllers.data;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

@@ -1,4 +1,4 @@
-package com.company.salary.controllers.data;
+package com.company.salary_backend.controllers.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

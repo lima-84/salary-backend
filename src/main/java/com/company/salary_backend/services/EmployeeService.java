@@ -1,7 +1,7 @@
-package com.company.salary.services;
+package com.company.salary_backend.services;
 
-import com.company.salary.controllers.data.EmployeeRequestDTO;
-import com.company.salary.controllers.data.EmployeeResponseDTO;
+import com.company.salary_backend.controllers.data.EmployeeRequestDTO;
+import com.company.salary_backend.controllers.data.EmployeeResponseDTO;
 
 import java.util.List;
 

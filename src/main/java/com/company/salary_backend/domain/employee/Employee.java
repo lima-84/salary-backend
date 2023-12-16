@@ -1,8 +1,8 @@
-package com.company.salary.domain.employee;
+package com.company.salary_backend.domain.employee;
 
 import java.time.LocalDate;
 
-import com.company.salary.controllers.data.EmployeeDTO;
+import com.company.salary_backend.controllers.data.EmployeeDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
