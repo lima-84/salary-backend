@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.company</groupId>
-	<artifactId>salary</artifactId>
+	<artifactId>salary_backend</artifactId>
 	<version>1.0.0</version>
-	<name>salary</name>
+	<name>salary_backend</name>
 	<description>Salary calculations RESTful API</description>
 	<properties>
 		<java.version>17</java.version>

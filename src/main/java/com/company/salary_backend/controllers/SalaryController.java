@@ -1,7 +1,7 @@
-package com.company.salary.controllers;
+package com.company.salary_backend.controllers;
 
-import com.company.salary.controllers.data.SalaryResponseDTO;
-import com.company.salary.services.SalaryService;
+import com.company.salary_backend.controllers.data.SalaryResponseDTO;
+import com.company.salary_backend.services.SalaryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

@@ -1,6 +1,6 @@
-package com.company.salary.repositories;
+package com.company.salary_backend.repositories;
 
-import com.company.salary.domain.employee.Employee;
+import com.company.salary_backend.domain.employee.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

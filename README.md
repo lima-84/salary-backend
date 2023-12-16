@@ -1,16 +1,15 @@
-# Salary
+# Salary Backend
 
-Implements a RESTful CRUD API applying SOLID principles and CLEAN Architecture (in progress) for salary readjustment calculations.
+Implements a RESTful CRUD API applying SOLID principles and CLEAN Architecture for salary readjustment calculations.
 
 ## Technologies
 - Java Development Kit 17;
-- Spring Boot 3.1.5;
+- Spring Boot 3.2.0;
 - Apache Maven 4.0.0;
 - Spring Data JPA (Hibernate);
 - PostgreSQL;
 - OpenAPI 3.0 SpringDoc with Swagger UI;
 - Lombok;
-- FasterXML Jackson for JSON handling;
 - JUnit;
 - Docker for Java server and PostgreSQL database containerization.
 
@@ -23,11 +22,11 @@ The following sequence of commands can be run on Bash in order to setup the appl
 Download files directly from GitHub or using Git.
 
 ```
-git clone https://github.com/lima-84/salary.git
+git clone https://github.com/lima-84/salary_backend.git
 ```
 ### Build the package using Maven Wrapper
 
-From the root directory `salary`, install all dependencies declared in `pom.xml` using Maven Wrapper.
+From the root directory `salary_backend`, install all dependencies declared in `pom.xml` using Maven Wrapper.
 
 ```
 ./mvnw clean install

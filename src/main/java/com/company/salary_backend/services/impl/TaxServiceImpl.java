@@ -1,9 +1,9 @@
-package com.company.salary.services.impl;
+package com.company.salary_backend.services.impl;
 
-import com.company.salary.controllers.data.EmployeeResponseDTO;
-import com.company.salary.controllers.data.TaxResponseDTO;
-import com.company.salary.services.EmployeeService;
-import com.company.salary.services.TaxService;
+import com.company.salary_backend.controllers.data.EmployeeResponseDTO;
+import com.company.salary_backend.controllers.data.TaxResponseDTO;
+import com.company.salary_backend.services.EmployeeService;
+import com.company.salary_backend.services.TaxService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

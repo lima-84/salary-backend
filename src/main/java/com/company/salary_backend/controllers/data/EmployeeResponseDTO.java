@@ -1,6 +1,6 @@
-package com.company.salary.controllers.data;
+package com.company.salary_backend.controllers.data;
 
-import com.company.salary.domain.employee.Employee;
+import com.company.salary_backend.domain.employee.Employee;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

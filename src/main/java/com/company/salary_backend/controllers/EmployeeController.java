@@ -1,8 +1,8 @@
-package com.company.salary.controllers;
+package com.company.salary_backend.controllers;
 
-import com.company.salary.controllers.data.EmployeeRequestDTO;
-import com.company.salary.controllers.data.EmployeeResponseDTO;
-import com.company.salary.services.EmployeeService;
+import com.company.salary_backend.controllers.data.EmployeeRequestDTO;
+import com.company.salary_backend.controllers.data.EmployeeResponseDTO;
+import com.company.salary_backend.services.EmployeeService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
